@@ -1,2 +1,2 @@
-# Print-It WebSite v.1
-# OpenClassrooms_Projet-5
+# Print-It WebSite
+OpenClassrooms_Projet-5
