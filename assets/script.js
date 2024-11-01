@@ -59,7 +59,7 @@ function updateSlider() {
 }
 
 const updateDots = () => {
-	dots.innerHTML = '';
+	dots.innerHTML = ''; // Vide le contenu de dots pour ne pas cumuler les points à chaque appelle de la fonction
 	for (let i = 0; i < slides.length; i++) { // Pour i = 0, i est inférieur à la taille de mon tableau, on ajoute +1 i
 		const dot = document.createElement("div"); //On créé la div .dot
 		dot.classList.add('dot'); // On ajoute la dit créée .dot
