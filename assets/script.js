@@ -17,48 +17,51 @@ const slides = [
 	}
 ]
 
-const bannerImg = document.querySelector('.banner-img');
-const left = document.querySelector('.arrow_left');
-const right = document.querySelector('.arrow_right');
-const dots = document.querySelector('.dots');
-let index = 0;
+const bannerImg = document.querySelector('.banner-img')
+const left = document.querySelector('.arrow_left')
+const right = document.querySelector('.arrow_right')
+const dots = document.querySelector('.dots')
+let slide = 0
 
 left.addEventListener('click', function () {
-    index = index - 1
-    updateSlider();
+    slide--
+    updateSlider()
 });
 
 right.addEventListener('click', function () {
-    index = index + 1
-    updateSlider();
+    slide++
+    updateSlider()
 });
 
+
 function updateSlider() {
-	if (index >= slides.length) {
-		index = 0;
+	if (slide >= slides.length) {
+		slide = 0
 	}
-	if (index < 0) {
-		index = slides.length -1;
+	if (slide < 0) {
+		slide = slides.length - 1
 	}
     
-    const imagePath = `assets/images/slideshow/${slides[index].image}`;
-    bannerImg.src = imagePath;
+    const imagePath = "assets/images/slideshow/" + slides[slide].image
+    bannerImg.src = imagePath
 
-    const tagLine = slides[index].tagLine;
-    document.querySelector('p').innerHTML = tagLine;
+	const text = document.querySelector('p')
+    const tagLine = slides[slide].tagLine
+    text.innerHTML = tagLine
+	
 	updateDots();
 }
 
 function updateDots() {
-	dots.innerHTML = '';
-	for (let i = 0; i < slides.length; i++) {
-		const dot = document.createElement("div");
-		dot.classList.add('dot');
-		if (i === index) {
-            dot.classList.add('dot_selected');
+	dots.innerHTML = ''
+	for (let position = 0; position < slides.length; position++) {
+		const dot = document.createElement('div')
+		dot.classList.add('dot')
+		if (position === slide) {
+            dot.classList.add('dot_selected')
 		}
-		dots.appendChild(dot);
+		dots.appendChild(dot)
 	}
 }
 
-updateSlider();
+updateSlider()
