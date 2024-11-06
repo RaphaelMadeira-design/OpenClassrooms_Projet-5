@@ -41,12 +41,9 @@ function updateSlider() {
 		slide = slides.length - 1
 	}
     
-    const imagePath = "assets/images/slideshow/" + slides[slide].image
-    bannerImg.src = imagePath
+    bannerImg.src = "assets/images/slideshow/" + slides[slide].image
 
-	const text = document.querySelector('p')
-    const tagLine = slides[slide].tagLine
-    text.innerHTML = tagLine
+	document.querySelector('p').innerHTML = slides[slide].tagLine
 	
 	updateDots();
 }
