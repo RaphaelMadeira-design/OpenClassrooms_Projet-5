@@ -33,7 +33,6 @@ right.addEventListener('click', function () {
     updateSlider()
 });
 
-
 function updateSlider() {
 	if (slide >= slides.length) {
 		slide = 0
@@ -54,10 +53,10 @@ function updateSlider() {
 
 function updateDots() {
 	dots.innerHTML = ''
-	for (let position = 0; position < slides.length; position++) {
+	for (let i = 0; i < slides.length; i++) {
 		const dot = document.createElement('div')
 		dot.classList.add('dot')
-		if (position === slide) {
+		if (i === slide) {
             dot.classList.add('dot_selected')
 		}
 		dots.appendChild(dot)
